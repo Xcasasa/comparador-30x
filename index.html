@@ -102,7 +102,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="nbtn" id="bN" onclick="go(1)">Siguiente &#8594;</button>
   <span class="pill" id="pill"></span>
   <span class="bdg" id="bdg"></span>
-  <button class="tbtn" id="tScr" onclick="toggleScript()">&#128196; Ocultar script</button>
+  <button class="tbtn" id="tScr" onclick="toggleScript()">&#128196; Ver script</button>
 </div>
 <div class="prg"><div class="pf" id="pf"></div></div>
 <div class="blks" id="bks"></div>
@@ -129,7 +129,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <script>
-var scriptVisible = true;
+var scriptVisible = false;
 var modalSide = 'nueva';
 
 var SL=[
@@ -486,27 +486,20 @@ function render(){
   g('nN').textContent='Slide '+s.nv.n;
   g('nI').innerHTML='<img src="'+s.nv.i+'" alt=""><div class="zoom-hint">&#128269; click para ampliar</div>';
 
-  var propH = propOpen ? '500px' : '0px';
-  var scrH  = scrOpen  ? '1000px': '0px';
-  var propLbl = propOpen ? '▲' : '▼';
+  var scrH  = scrOpen  ? '2000px': '0px';
   var scrLbl  = scrOpen  ? '▲' : '▼';
   var scrFormatted = s.nv.script.replace(/\n/g,'<br>');
 
   g('nScroll').innerHTML=
     '<div class="nt">'+s.nv.t+'</div>'+
-    '<div class="sec">'+
-      '<div class="sec-hdr" onclick="togSec(\'prop\')">'+
-        '<span class="sec-lbl">¿Qué propongo?</span>'+
-        '<span class="tog" id="tProp">'+propLbl+'</span>'+
-      '</div>'+
-      '<div class="sec-body" id="bProp" style="max-height:'+propH+'">'+
-        '<div class="propuesta-box"><div class="propuesta-text">'+s.nv.propuesta+'</div></div>'+
-      '</div>'+
+    '<div class="sec" style="margin-bottom:10px">'+
+      '<div style="margin-bottom:5px"><span class="sec-lbl">¿Qué propongo?</span></div>'+
+      '<div class="propuesta-box"><div class="propuesta-text">'+s.nv.propuesta+'</div></div>'+
     '</div>'+
     (scriptVisible ?
       '<div class="sec">'+
         '<div class="sec-hdr" onclick="togSec(\'scr\')">'+
-          '<span class="sec-lbl green">El script</span>'+
+          '<span class="sec-lbl green">El script · Lo que dice Andrés</span>'+
           '<span class="tog" id="tScr2">'+scrLbl+'</span>'+
         '</div>'+
         '<div class="sec-body" id="bScr" style="max-height:'+scrH+'">'+
@@ -537,7 +530,7 @@ function togSec(which){
 function toggleScript(){
   scriptVisible=!scriptVisible;
   var btn=g('tScr');
-  btn.textContent = scriptVisible ? '📄 Ocultar script' : '📄 Mostrar script';
+  btn.textContent = scriptVisible ? '📄 Ocultar script' : '📄 Ver script del ponente';
   btn.className = scriptVisible ? 'tbtn on' : 'tbtn';
   render();
 }
@@ -571,7 +564,6 @@ document.addEventListener('keydown',function(e){
 });
 window.addEventListener('resize',setImgH);
 
-toggleScript(); // start with script visible and button labeled correctly
 render();
 </script>
 </body>
