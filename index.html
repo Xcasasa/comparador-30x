@@ -9,9 +9,9 @@
 html,body{height:100%}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#fff;display:flex;flex-direction:column;height:100vh;overflow:hidden}
 .hdr{flex-shrink:0;background:#161616;border-bottom:1px solid #2a2a2a;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.logo{font-size:13px;font-weight:700;color:#D4F53C}
+.logo{font-size:13px;font-weight:700;color:#D4F53C;letter-spacing:.5px}
 .htitle{font-size:11px;color:#555;margin-right:auto}
-.nbtn{padding:6px 12px;border-radius:6px;border:1px solid #333;background:#222;color:#fff;cursor:pointer;font-size:12px}
+.nbtn{padding:6px 12px;border-radius:6px;border:1px solid #333;background:#222;color:#fff;cursor:pointer;font-size:12px;transition:background .15s}
 .nbtn:hover{background:#333}
 .nbtn:disabled{opacity:.25;cursor:not-allowed}
 .ctr{font-size:11px;color:#555}
@@ -21,28 +21,44 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .bm{background:#2a1f00;color:#EF9F27;border:1px solid #4a3500}
 .bn{background:#001a0d;color:#5DCAA5;border:1px solid #0F6E56}
 .prg{flex-shrink:0;height:2px;background:#1a1a1a}
-.pf{height:100%;background:#534AB7;transition:width .2s}
-.blks{flex-shrink:0;display:flex;gap:5px;padding:7px 14px;background:#0f0f0f;border-bottom:1px solid #1a1a1a;flex-wrap:wrap}
-.bb{font-size:11px;padding:3px 8px;border-radius:4px;border:1px solid #222;background:#161616;color:#555;cursor:pointer}
-.bb:hover{color:#aaa}
+.pf{height:100%;background:#534AB7;transition:width .25s}
+.blks{flex-shrink:0;display:flex;gap:5px;padding:7px 14px;background:#0a0a0a;border-bottom:1px solid #1a1a1a;flex-wrap:wrap}
+.bb{font-size:11px;padding:3px 8px;border-radius:4px;border:1px solid #1e1e1e;background:#141414;color:#555;cursor:pointer;transition:all .15s}
+.bb:hover{color:#aaa;border-color:#444}
 .bb.on{background:#1a1a2e;color:#9F7AEA;border-color:#534AB7}
-.grid{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0}
+/* Main layout */
+.grid{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0;overflow:hidden}
 .pan{display:flex;flex-direction:column;overflow:hidden;border-right:1px solid #1a1a1a}
+/* Panel header */
 .ph{flex-shrink:0;padding:7px 12px;display:flex;align-items:center;gap:6px;background:#161616;border-bottom:1px solid #222}
-.pl{font-size:10px;font-weight:700;letter-spacing:.8px;color:#3a3a3a;text-transform:uppercase}
+.pl{font-size:10px;font-weight:700;letter-spacing:.8px;color:#333;text-transform:uppercase}
 .sn{font-size:10px;color:#2a2a2a;margin-left:auto}
-.iw{flex:1;overflow:hidden;background:#050505;display:flex;align-items:center;justify-content:center;min-height:0}
+/* Image area */
+.iw{flex-shrink:0;height:220px;background:#050505;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #1a1a1a}
 .iw img{max-width:100%;max-height:100%;object-fit:contain;display:block}
-.emp{color:#2a2a2a;font-size:12px;text-align:center;padding:20px;line-height:1.7}
-.ib{flex-shrink:0;padding:9px 12px;background:#111;border-top:1px solid #1a1a1a}
-.st{font-size:12px;font-weight:600;color:#bbb;margin-bottom:3px}
-.sd{font-size:11px;color:#555;line-height:1.5}
-.nv .ph{background:#0a0a18}
-.nv .iw{background:#06060f}
-.nv .ib{background:#09090f}
-.nv .pl{color:#4a4a8a}
-.nv .st{color:#b4a4e8}
-.nv .sd{color:#4a4a6a}
+.emp-img{color:#252525;font-size:12px;text-align:center;padding:20px;line-height:1.7}
+/* Scrollable info area */
+.info{flex:1;overflow-y:auto;padding:14px 14px 20px}
+.info::-webkit-scrollbar{width:4px}
+.info::-webkit-scrollbar-track{background:#111}
+.info::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:2px}
+/* Original panel info */
+.slide-title-orig{font-size:13px;font-weight:600;color:#aaa;margin-bottom:6px}
+.slide-desc-orig{font-size:11px;color:#444;line-height:1.6}
+/* Nueva panel sections */
+.sec-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#534AB7;margin-bottom:5px;margin-top:14px}
+.sec-label:first-child{margin-top:0}
+.slide-title-nv{font-size:13px;font-weight:600;color:#c4b5fd;margin-bottom:6px}
+.propuesta-box{background:#0d0d1a;border:1px solid #252540;border-radius:6px;padding:10px 12px;margin-bottom:2px}
+.propuesta-text{font-size:11px;color:#8080b0;line-height:1.7}
+.narrativa-box{background:#0a1a0a;border:1px solid #1a2e1a;border-radius:6px;padding:10px 12px}
+.narrativa-text{font-size:11px;color:#5a8a5a;line-height:1.7;font-style:italic}
+.narrativa-text strong{color:#7ab87a;font-style:normal}
+/* Nueva panel styling */
+.pan.nv .ph{background:#0a0a18}
+.pan.nv .iw{background:#060610}
+/* Empty state */
+.emp-panel{display:flex;align-items:center;justify-content:center;height:100%;color:#222;font-size:12px;text-align:center;padding:30px;line-height:1.8}
 </style>
 </head>
 <body>
@@ -61,111 +77,383 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="pan" id="pO">
     <div class="ph"><span class="pl">ORIGINAL</span><span class="sn" id="oN"></span></div>
     <div class="iw" id="oI"></div>
-    <div class="ib"><div class="st" id="oT"></div><div class="sd" id="oD"></div></div>
+    <div class="info" id="oInfo"></div>
   </div>
   <div class="pan nv">
     <div class="ph"><span class="pl">PROPUESTA NUEVA</span><span class="sn" id="nN"></span></div>
     <div class="iw" id="nI"></div>
-    <div class="ib"><div class="st" id="nT"></div><div class="sd" id="nD"></div></div>
+    <div class="info" id="nInfo"></div>
   </div>
 </div>
 <script>
 var SL=[
-{bl:"Apertura",st:"new",nv:{n:"0",t:"Momento Cero",d:"Pregunta en pantalla antes de que entre Andrés. Sin logos, sin música, sin agenda.",i:"imgs/n01.jpg"},og:null},
-{bl:"Apertura",st:"same",nv:{n:"1",t:"Portada",d:"Andrés Bilbao · Co-founder Rappi · Co-founder B2",i:"imgs/n02.jpg"},og:{n:"1",t:"Portada",d:"Andrés Bilbao · Co-founder Rappi · Co-founder B2",i:"imgs/o01.jpg"}},
-{bl:"Apertura",st:"new",nv:{n:"A1",t:"La Credencial",d:"50% primera levanta · Sin cohorte · Sin churn · 15 personas.",i:"imgs/n03.jpg"},og:{n:"—",t:"Solo en notas del slide 3",d:"La historia estaba en notas del speaker, invisible para la audiencia.",i:null}},
-{bl:"Apertura",st:"new",nv:{n:"A2",t:"El Desafío Compartido",d:"Lo que los trajo hasta aquí no los va a llevar a donde quieren ir.",i:"imgs/n04.jpg"},og:null},
-{bl:"Apertura",st:"modified",nv:{n:"A3",t:"Los 4 Ingredientes",d:"Mentalidad · Estrategia · People · Ejecución. En la apertura como mapa del inmersivo.",i:"imgs/n05.jpg"},og:{n:"41/42",t:"Ingredientes de la expansión",d:"Lista de 6 ingredientes al final del deck, duplicada.",i:"imgs/o02.jpg"}},
-{bl:"Apertura",st:"new",nv:{n:"A4",t:"El Gran Domino",d:"La pregunta que rompe: ¿cuál es el verdadero obstáculo?",i:"imgs/n06.jpg"},og:null},
-{bl:"Mindset",st:"same",nv:{n:"2",t:"MINDSET (sección)",d:"Slide de sección. Ingrediente 1.",i:"imgs/n07.jpg"},og:{n:"2",t:"MINDSET (sección)",d:"Igual. La presentación arrancaba aquí sin apertura.",i:"imgs/o03.jpg"}},
-{bl:"Mindset",st:"modified",nv:{n:"3",t:"Rappi: mucho Will · poco Skill",d:"Historia de Rappi con el cuadrante Will-Skill como marco.",i:"imgs/n08.jpg"},og:{n:"3",t:"Mucho Will · Poco Skill",d:"Solo foto del equipo. Historia solo en notas.",i:"imgs/o04.jpg"}},
-{bl:"Mindset",st:"same",nv:{n:"4",t:"Will-Skill + Ignorancia pura",d:"Cuadrante completo con la 5ta dimensión.",i:"imgs/n09.jpg"},og:{n:"4",t:"Will-Skill + Ignorancia pura",d:"Igual.",i:"imgs/o05.jpg"}},
-{bl:"Mindset",st:"same",nv:{n:"5",t:"Las creencias son el sistema operativo",d:"Quote de impacto.",i:"imgs/n10.jpg"},og:{n:"5",t:"Las creencias es donde todo empieza",d:"Igual.",i:"imgs/o06.jpg"}},
-{bl:"Mindset",st:"modified",nv:{n:"6",t:"Diagnóstico: creencias limitantes en Latam",d:"Lista consolidada.",i:"imgs/n11.jpg"},og:{n:"6+7",t:"Dos slides separados por creencia",d:"Slide 6: EE.UU. / Slide 7: sufrir. Sin lista.",i:"imgs/o07.jpg"}},
-{bl:"Mindset",st:"same",nv:{n:"7",t:"¿Cuáles son las tuyas?",d:"Ejercicio de diagnóstico personal.",i:"imgs/n12.jpg"},og:{n:"9",t:"¿Cuáles son tus creencias limitantes?",d:"Lista de ejemplos.",i:"imgs/o08.jpg"}},
-{bl:"Mindset",st:"same",nv:{n:"8",t:"Creencias potentes de Rappi",d:"Todo es posible · Somos capaces · Crecer es oxígeno · Somos suertudos.",i:"imgs/n13.jpg"},og:{n:"8",t:"Creencias potentes en Rappi",d:"Igual.",i:"imgs/o09.jpg"}},
-{bl:"Mindset",st:"modified",nv:{n:"9",t:"El Loop de Expansión",d:"Creencias → Percepciones → Oportunidades → Resultados → loop.",i:"imgs/n14.jpg"},og:{n:"10+14",t:"Loop + Círculo creencias (dos slides)",d:"Mismo concepto en dos slides distintos.",i:"imgs/o10.jpg"}},
-{bl:"Mindset",st:"modified",nv:{n:"10",t:"La ciencia detrás (Lipton — 3 ideas)",d:"Solo 3 ideas clave, no las 10.",i:"imgs/n15.jpg"},og:{n:"11+12+13",t:"Lipton: 10 ideas en 3 slides",d:"Muy denso.",i:"imgs/o11.jpg"}},
-{bl:"Mindset",st:"new",nv:{n:"11",t:"Lipton: 3 ideas desarrolladas",d:"Aplicadas al contexto empresarial.",i:"imgs/n16.jpg"},og:null},
-{bl:"Mindset",st:"modified",nv:{n:"12",t:"El Mindset Escalador (sección)",d:"3 capas integradas.",i:"imgs/n17.jpg"},og:{n:"20+21",t:"¿Cómo mejoro mi mindset? + 3 científicos",d:"Pregunta + foto sin integración.",i:"imgs/o12.jpg"}},
-{bl:"Mindset",st:"modified",nv:{n:"13",t:"Capa 1: Todo se puede desarrollar",d:"Carol Dweck · Growth Mindset.",i:"imgs/n18.jpg"},og:{n:"22",t:"Carol Dweck — Growth Mindset",d:"Texto muy extenso.",i:"imgs/o13.jpg"}},
-{bl:"Mindset",st:"modified",nv:{n:"14",t:"Capa 2: La confianza se construye",d:"Bandura · 4 fuentes de autoeficacia.",i:"imgs/n19.jpg"},og:{n:"23",t:"Albert Bandura — Autosuficiencia",d:"Texto académico extenso.",i:"imgs/o14.jpg"}},
-{bl:"Mindset",st:"same",nv:{n:"15",t:"Capa 3: Tú eres el responsable",d:"Rotter · Locus de Control.",i:"imgs/n20.jpg"},og:{n:"24",t:"Julian Rotter — Locus de Control",d:"Igual.",i:"imgs/o15.jpg"}},
-{bl:"Mindset",st:"modified",nv:{n:"16",t:"Ejercicio: la creencia más cara",d:"¿Cuánto te costó tu creencia limitante más cara?",i:"imgs/n21.jpg"},og:{n:"25",t:"Slide de imagen (sin texto)",d:"Solo imagen, ejercicio en notas.",i:"imgs/o16.jpg"}},
-{bl:"Suerte",st:"modified",nv:{n:"17",t:"El Código de la Suerte (sección)",d:"El output del mindset correcto.",i:"imgs/n22.jpg"},og:{n:"15",t:"¿Será bueno creer que somos suertudos?",d:"Pregunta sin frame de sistema.",i:"imgs/o17.jpg"}},
-{bl:"Suerte",st:"modified",nv:{n:"18",t:"La suerte no es aleatoria",d:"Quote de impacto.",i:"imgs/n23.jpg"},og:{n:"16+17+18",t:"¿Cómo ser suertudos? (3 slides)",d:"Framework repetido en 3 slides.",i:"imgs/o18.jpg"}},
-{bl:"Suerte",st:"same",nv:{n:"19",t:"Los 4 tipos de suerte",d:"Ciega · Esfuerzo · Preparación · Carácter.",i:"imgs/n24.jpg"},og:{n:"19",t:"Los 4 tipos de suerte",d:"Igual.",i:"imgs/o19.jpg"}},
-{bl:"Suerte",st:"new",nv:{n:"20",t:"Somos suertudos como decisión",d:"Activa los tipos 2, 3 y 4 simultáneamente.",i:"imgs/n25.jpg"},og:null},
-{bl:"Suerte",st:"new",nv:{n:"20B",t:"Las 4 palancas del Código de la Suerte",d:"Volumen · Expertise · Reputación · Percepción abierta.",i:"imgs/n26.jpg"},og:null},
-{bl:"Meta 30x",st:"modified",nv:{n:"21",t:"La Meta Imposible 30x (sección)",d:"Primera prueba de fuego del mindset.",i:"imgs/n27.jpg"},og:{n:"31",t:"¿Cómo defino metas?",d:"Solo pregunta de transición, sin framework.",i:"imgs/o21.jpg"}},
-{bl:"Meta 30x",st:"new",nv:{n:"22",t:"30x vs 30%",d:"30% optimiza lo actual. 30x hace obsoleta la estrategia.",i:"imgs/n28.jpg"},og:null},
-{bl:"Meta 30x",st:"new",nv:{n:"23",t:"Los 4 filtros",d:"¿Da vértigo? ¿Nueva versión? ¿Estrategia obsoleta? ¿Soltar creencias?",i:"imgs/n29.jpg"},og:null},
-{bl:"Meta 30x",st:"new",nv:{n:"24",t:"Escríbelo",d:"Ejercicio: Meta Imposible 30x en presente.",i:"imgs/n30.jpg"},og:null},
-{bl:"Workshop",st:"new",nv:{n:"25",t:"¿Quién quiere compartir?",d:"10-15 voluntarios. Andrés challengea en vivo.",i:"imgs/n31.jpg"},og:null},
-{bl:"Workshop",st:"new",nv:{n:"25B",t:"Transición Workshop → Sistema",d:"¿Con qué sistema logran la meta?",i:"imgs/n32.jpg"},og:null},
-{bl:"30X OS",st:"new",nv:{n:"26",t:"El 30X Exponential OS",d:"MINDSET · STRATEGY · PEOPLE · EXECUTION · SPEED & CAPABILITIES.",i:"imgs/n33.jpg"},og:null},
-{bl:"30X OS",st:"modified",nv:{n:"27",t:"Los 4 ingredientes (tracker)",d:"Mindset ✓ · Estrategia · People · Ciclos →",i:"imgs/n34.jpg"},og:{n:"40+43",t:"Expansión World Class + PMF",d:"6 ingredientes sin tracker.",i:"imgs/o24.jpg"}},
-{bl:"Estrategia",st:"new",nv:{n:"28",t:"ESTRATEGIA (sección)",d:"Ingrediente 2.",i:"imgs/n35.jpg"},og:null},
-{bl:"Estrategia",st:"modified",nv:{n:"29",t:"La Meta define la Estrategia",d:"Tu Meta hace obsoleta la estrategia actual.",i:"imgs/n36.jpg"},og:{n:"37",t:"Hoja de trabajo SMART",d:"7 elementos sin conexión a ninguna meta.",i:"imgs/o22.jpg"}},
-{bl:"Estrategia",st:"modified",nv:{n:"30",t:"Priorización implacable",d:"Claridad · despriorizar · no desperdiciar tiempo.",i:"imgs/n37.jpg"},og:{n:"55",t:"Priorización implacable",d:"Igual, en bloque El Operador.",i:"imgs/o23.jpg"}},
-{bl:"Estrategia",st:"new",nv:{n:"31",t:"Estrategia → Tácticas → Playbook",d:"La secuencia completa.",i:"imgs/n38.jpg"},og:null},
-{bl:"Estrategia",st:"modified",nv:{n:"31B",t:"El Problema Correcto (Hoja SMART)",d:"5 elementos: SMART · contexto · stakeholders · éxito · quick wins.",i:"imgs/n39.jpg"},og:{n:"37+61",t:"Hoja SMART (aparece dos veces)",d:"Mismo contenido en dos bloques distintos.",i:"imgs/o22.jpg"}},
-{bl:"Cultura",st:"modified",nv:{n:"32",t:"CULTURA (sección)",d:"Ingrediente 3.",i:"imgs/n40.jpg"},og:{n:"46+47",t:"Cultura agresiva desplegada (duplicada)",d:"Mismos principios en dos slides.",i:"imgs/o25.jpg"}},
-{bl:"Cultura",st:"new",nv:{n:"33",t:"¿Qué es cultura?",d:"La cultura como sistema operativo colectivo.",i:"imgs/n41.jpg"},og:null},
-{bl:"Cultura",st:"modified",nv:{n:"34",t:"Los 14 principios Rappi",d:"Un slide limpio con todos los principios.",i:"imgs/n42.jpg"},og:{n:"47",t:"14 principios Rappi (versión B)",d:"Slide duplicado.",i:"imgs/o26.jpg"}},
-{bl:"Cultura",st:"modified",nv:{n:"35",t:"Principios del operador",d:"Responsabilidad total · Problem QB · Mente abierta · Sin defensividad.",i:"imgs/n43.jpg"},og:{n:"50",t:"El Operador",d:"Principios dispersos en 4 slides distintos.",i:"imgs/o27.jpg"}},
-{bl:"Cultura",st:"modified",nv:{n:"36",t:"13 principios de reclutamiento (3 cards)",d:"No delegas · Rihanna Rule · Contratación en V.",i:"imgs/n44.jpg"},og:{n:"67",t:"Recruiting principles (lista)",d:"13 principios como lista numerada.",i:"imgs/o28.jpg"}},
-{bl:"Cultura",st:"modified",nv:{n:"36B",t:"Sistema de reclutamiento: 13 principios",d:"Los 10 principios restantes en grilla.",i:"imgs/n45.jpg"},og:{n:"68",t:"Inicio de 23 slides de profundidad",d:"Cada principio en 1-4 slides.",i:"imgs/o29.jpg"}},
-{bl:"Ciclos",st:"new",nv:{n:"37",t:"CICLOS DE ITERACIÓN (sección)",d:"Ingrediente 4.",i:"imgs/n46.jpg"},og:null},
-{bl:"Ciclos",st:"modified",nv:{n:"38",t:"Capability Development Framework",d:"8 pasos para desarrollar lo que no sabes.",i:"imgs/n47.jpg"},og:{n:"33",t:"Framework 8 pasos",d:"Mismo contenido, desconectado.",i:"imgs/o30.jpg"}},
-{bl:"Ciclos",st:"modified",nv:{n:"39",t:"No mentiras",d:"Narrativa cómoda vs explicación real con datos.",i:"imgs/n48.jpg"},og:{n:"63",t:"No mentiras (bloque El Operador)",d:"Igual, fuera de contexto.",i:"imgs/o31.jpg"}},
-{bl:"Ciclos",st:"modified",nv:{n:"40",t:"El Loop de Mejora",d:"Plan → Construcción → Lanzamiento → Operar y Mejorar.",i:"imgs/n49.jpg"},og:{n:"38",t:"Marco de desarrollo",d:"Igual, sin conexión a los 4 ingredientes.",i:"imgs/o32.jpg"}},
-{bl:"Cierre",st:"modified",nv:{n:"41",t:"El sistema completo",d:"Los 4 ingredientes con ✓ · Speed & Capabilities en el centro.",i:"imgs/n50.jpg"},og:{n:"41",t:"Los ingredientes (lista)",d:"6 ingredientes sin checks.",i:"imgs/o02.jpg"}},
-{bl:"Cierre",st:"modified",nv:{n:"42",t:"El sistema se abre",d:"El primer ingrediente está. Los dos días siguientes completan el 30X OS.",i:"imgs/n51.jpg"},og:{n:"92",t:"Lista de materiales y libros",d:"Cierre genérico sin conexión.",i:"imgs/o33.jpg"}}
+{bl:"Apertura",st:"new",
+ nv:{n:"0",t:"Momento Cero",i:"imgs/n01.jpg",
+   propuesta:"Una sola pregunta en pantalla negra. Sin nombre, sin logo, sin agenda. La audiencia la lee mientras la sala se llena. Ejemplo: '¿Cuándo fue la última vez que tomaste una decisión que realmente te dio vértigo?'",
+   narrativa:"El objetivo es activar el modo reflexivo antes de que Andrés entre. La pregunta tiene que ser lo suficientemente incómoda como para que nadie la responda mentalmente de forma cómoda. <strong>Andrés no entra todavía.</strong> El slide trabaja solo."},
+ og:null},
+
+{bl:"Apertura",st:"same",
+ nv:{n:"1",t:"Portada",i:"imgs/n02.jpg",
+   propuesta:"Nombre, foto y dos líneas de credencial. Fondo negro total. Sin subtítulos de bienvenida ni agenda.",
+   narrativa:"Andrés entra. El slide ya dice quién es. <strong>Él no se presenta</strong> — el slide lo presenta por él. Lo primero que dice es sobre la audiencia, no sobre sí mismo."},
+ og:{n:"1",t:"Portada",d:"Andrés Bilbao · Co-founder Rappi · Co-founder B2 · Serial entrepreneur",i:"imgs/o01.jpg"}},
+
+{bl:"Apertura",st:"new",
+ nv:{n:"A1",t:"La Credencial",i:"imgs/n03.jpg",
+   propuesta:"4 bullets que cuentan los inicios de Rappi como 'no sabíamos nada': Primera levanta: entregamos el 50% de la compañía / No sabíamos qué era un cohorte / No sabíamos medir churn / La empresa más grande que habíamos operado tenía 15 personas.",
+   narrativa:"<strong>'La credencial de Rappi no es el unicornio. Es que llegamos con mucho Will y poco Skill, y aun así construimos algo world class. Eso es lo que conecta con ustedes.'</strong> El mensaje implícito: si ellos pudieron desde la ignorancia, el sistema funciona."},
+ og:{n:"—",t:"Solo en notas del slide 3",d:"La historia de los inicios de Rappi estaba únicamente en las notas del speaker, invisible para la audiencia.",i:null}},
+
+{bl:"Apertura",st:"new",
+ nv:{n:"A2",t:"El Desafío Compartido",i:"imgs/n04.jpg",
+   propuesta:"Una sola afirmación en pantalla grande: 'Lo que los trajo hasta aquí no los va a llevar a donde quieren ir.'",
+   narrativa:"Andrés pausa y deja que la frase aterrice. Luego pregunta en voz alta: <strong>'¿Cuántos sienten que están atascados en el mismo cuello de botella hace más de seis meses?'</strong> Espera. Levanta la mano primero él. La sala reacciona."},
+ og:null},
+
+{bl:"Apertura",st:"modified",
+ nv:{n:"A3",t:"Los 4 Ingredientes",i:"imgs/n05.jpg",
+   propuesta:"Diagrama circular: Mindset · Estrategia · People · Ejecución · Speed & Capabilities en el centro. Indicador visual de que hoy solo se trabaja el primero.",
+   narrativa:"<strong>'Estos son los cuatro ingredientes que separan a las empresas world class de las que se quedan en el camino. En los próximos dos días los trabajamos uno por uno. Yo arranco con el más importante — el que, si no está bien, hace que los otros tres no funcionen.'</strong>"},
+ og:{n:"41/42",t:"Ingredientes de la expansión",d:"Lista de 6 ingredientes, ubicada al final del deck después de 40 slides. Sin posición de apertura y duplicada.",i:"imgs/o02.jpg"}},
+
+{bl:"Apertura",st:"new",
+ nv:{n:"A4",t:"El Gran Domino",i:"imgs/n06.jpg",
+   propuesta:"Una pregunta de impacto: '¿Cuál es la única creencia que, si cambias, cambia todo lo demás?' Metáfora visual del domino.",
+   narrativa:"Andrés introduce el concepto: no todos los problemas tienen el mismo peso. Hay una creencia que si se transforma, tumba todo lo demás. <strong>'El resto de este bloque les va a ayudar a identificar cuál es la suya.'</strong>"},
+ og:null},
+
+{bl:"Mindset",st:"same",
+ nv:{n:"2",t:"MINDSET (sección)",i:"imgs/n07.jpg",
+   propuesta:"Slide de sección. La palabra MINDSET en grande. Fondo negro. Nada más.",
+   narrativa:"Cambio de bloque. Andrés pausa, mira a la sala. <strong>'Ingrediente número uno.'</strong>"},
+ og:{n:"2",t:"MINDSET (sección)",d:"Igual. La presentación arrancaba aquí sin apertura previa.",i:"imgs/o03.jpg"}},
+
+{bl:"Mindset",st:"modified",
+ nv:{n:"3",t:"Rappi: mucho Will · poco Skill",i:"imgs/n08.jpg",
+   propuesta:"El cuadrante Will-Skill con Rappi claramente ubicado en alto Will / bajo Skill. La historia narrada visualmente.",
+   narrativa:"<strong>'Cuando arrancamos Rappi, no sabíamos nada. Pero teníamos una convicción irracional de que iba a funcionar. Eso es Will. Lo que no teníamos era el Skill para ejecutarlo bien.'</strong> Andrés usa el cuadrante para posicionar a Rappi, luego pregunta a la audiencia dónde se ubicarían ellos."},
+ og:{n:"3",t:"Mucho Will · Poco Skill",d:"Solo una foto del equipo de Rappi. La historia estaba en las notas del speaker, invisible para la audiencia.",i:"imgs/o04.jpg"}},
+
+{bl:"Mindset",st:"same",
+ nv:{n:"4",t:"Will-Skill + Ignorancia pura",i:"imgs/n09.jpg",
+   propuesta:"El cuadrante completo con la 5ta dimensión: Ignorancia pura — donde no sabés lo que no sabés.",
+   narrativa:"<strong>'La Ignorancia pura es el estado más peligroso — y el más común. No es falta de voluntad ni falta de habilidad. Es no saber que no sabés algo. Rappi vivió ahí los primeros dos años.'</strong> Este slide conecta directamente con el bloque de creencias."},
+ og:{n:"4",t:"Will-Skill + Ignorancia pura",d:"Igual contenido.",i:"imgs/o05.jpg"}},
+
+{bl:"Mindset",st:"same",
+ nv:{n:"5",t:"Las creencias son el sistema operativo",i:"imgs/n10.jpg",
+   propuesta:"Quote solo en pantalla: 'Las creencias son el sistema operativo. Todo lo que haces corre sobre ellas.'",
+   narrativa:"Andrés pausa. Deja que la frase esté sola 5 segundos. Luego: <strong>'Si el sistema operativo está mal, da igual qué app instales encima. No va a funcionar.'</strong>"},
+ og:{n:"5",t:"Las creencias es donde todo empieza",d:"Igual.",i:"imgs/o06.jpg"}},
+
+{bl:"Mindset",st:"modified",
+ nv:{n:"6",t:"Diagnóstico: creencias limitantes en Latam",i:"imgs/n11.jpg",
+   propuesta:"Lista consolidada: Nos queda grande EE.UU. / Hay que sufrir para crecer / No estoy en la rosca / Los grandes nos van a aplastar / Sin conexiones no se llega.",
+   narrativa:"<strong>'¿Cuántas de estas las han pensado alguna vez?'</strong> Andrés levanta la mano. La sala se ríe. El reconocimiento colectivo rompe la defensividad. No es una acusación — es un espejo."},
+ og:{n:"6+7",t:"Dos slides separados (slides 6 y 7)",d:"Slide 6: solo 'Nos queda grande EE.UU.' / Slide 7: solo 'Hay que sufrir'. Sin lista consolidada.",i:"imgs/o07.jpg"}},
+
+{bl:"Mindset",st:"same",
+ nv:{n:"7",t:"¿Cuáles son las tuyas?",i:"imgs/n12.jpg",
+   propuesta:"Ejercicio de diagnóstico. Pregunta directa: '¿Cuál es tu creencia limitante más cara — la que más te ha costado en tiempo, dinero y velocidad?'",
+   narrativa:"Andrés les da 3 minutos para escribirla. No para compartirla todavía — solo para nombrarla. <strong>'Si no la puedes nombrar, no la puedes cambiar.'</strong> Silencio real en la sala."},
+ og:{n:"9",t:"¿Cuáles son tus creencias limitantes?",d:"Lista de ejemplos: rosca · China · USA · etc.",i:"imgs/o08.jpg"}},
+
+{bl:"Mindset",st:"same",
+ nv:{n:"8",t:"Creencias potentes de Rappi",i:"imgs/n13.jpg",
+   propuesta:"Las creencias que sí funcionaron: Todo es posible · El éxito depende de determinación · Somos capaces de hacer cosas gigantes · Crecer es oxígeno · Somos suertudos.",
+   narrativa:"<strong>'Estas no son slogans. Son decisiones que tomamos activamente de creer. Y cambió lo que veíamos como oportunidad, cómo contratábamos, cómo negociábamos.'</strong> El contraste con el slide anterior es el punto."},
+ og:{n:"8",t:"Creencias potentes en Rappi",d:"Igual.",i:"imgs/o09.jpg"}},
+
+{bl:"Mindset",st:"modified",
+ nv:{n:"9",t:"El Loop de Expansión",i:"imgs/n14.jpg",
+   propuesta:"Diagrama circular: Creencias → Percepciones → Oportunidades → Resultados → retroalimenta Creencias. Loop continuo.",
+   narrativa:"<strong>'El problema no es que las creencias limitantes sean falsas o verdaderas. El problema es que son autorreferenciales. Si crees que no puedes, no intentas, no aprendes, no creces — y eso confirma que no podías.'</strong> Andrés dibuja el loop en el aire."},
+ og:{n:"10+14",t:"Loop (imagen) + Círculo creencias (dos slides)",d:"El mismo concepto en dos slides distintos.",i:"imgs/o10.jpg"}},
+
+{bl:"Mindset",st:"modified",
+ nv:{n:"10",t:"La ciencia detrás (Lipton — 3 ideas)",i:"imgs/n15.jpg",
+   propuesta:"Solo 3 ideas de Lipton: (1) El 95% de tu comportamiento corre en el subconsciente / (2) Puedes reprogramarte / (3) Tus creencias cambian tu biología.",
+   narrativa:"<strong>'Esto no es motivación. Es biología.'</strong> Andrés lo dice rápido — no es una clase de Lipton, es la validación científica de por qué esto importa. En 90 segundos, no más."},
+ og:{n:"11+12+13",t:"Lipton: 10 ideas en 3 slides",d:"Ideas 1-5, ideas 6-10, y las 10 juntas. Muy denso.",i:"imgs/o11.jpg"}},
+
+{bl:"Mindset",st:"new",
+ nv:{n:"11",t:"Lipton: 3 ideas aplicadas al negocio",i:"imgs/n16.jpg",
+   propuesta:"Las mismas 3 ideas traducidas al lenguaje de empresa: Tus creencias toman decisiones de negocio sin que lo sepas / El trabajo de hoy es literalmente cambiar el software / El estrés del empresario que cree que no puede tiene un costo operativo real.",
+   narrativa:"<strong>'No están en un taller de mindset. Están haciendo ingeniería de sistemas sobre su empresa.'</strong> Conecta la ciencia con el día a día."},
+ og:null},
+
+{bl:"Mindset",st:"modified",
+ nv:{n:"12",t:"El Mindset Escalador (sección)",i:"imgs/n17.jpg",
+   propuesta:"Slide de transición con las 3 capas que vienen: Todo se puede desarrollar · La confianza se construye · Tú eres el responsable.",
+   narrativa:"<strong>'Si el sistema operativo está en creencias, entonces hay que saber cuáles instalar. Hay tres capas. Cada una apoya a la siguiente.'</strong>"},
+ og:{n:"20+21",t:"¿Cómo mejoro mi mindset? + 3 científicos",d:"Pregunta de transición + foto de Dweck/Bandura/Rotter sin integración.",i:"imgs/o12.jpg"}},
+
+{bl:"Mindset",st:"modified",
+ nv:{n:"13",t:"Capa 1: Todo se puede desarrollar",i:"imgs/n18.jpg",
+   propuesta:"Carol Dweck integrada como herramienta práctica. El talento no es fijo, las habilidades se desarrollan. Con un ejemplo específico de Rappi.",
+   narrativa:"<strong>'Yo no sabía nada de finanzas cuando arrancamos Rappi. Decidí que era algo que se podía aprender. Dos años después era el primero en revisar el modelo.'</strong> La Capa 1 es la permisión para aprender lo que no sabés."},
+ og:{n:"22",t:"Carol Dweck — Growth Mindset",d:"3 principios con texto muy extenso.",i:"imgs/o13.jpg"}},
+
+{bl:"Mindset",st:"modified",
+ nv:{n:"14",t:"Capa 2: La confianza se construye",i:"imgs/n19.jpg",
+   propuesta:"Bandura simplificado. 4 fuentes de confianza: Hazlo / Míralo / Escúchalo / Reencuádralo.",
+   narrativa:"<strong>'La confianza no es un rasgo de carácter — es una habilidad que se construye con evidencia. Cada vez que hacen algo que les da miedo y funciona, están depositando en su cuenta de confianza.'</strong>"},
+ og:{n:"23",t:"Albert Bandura — Autosuficiencia",d:"Texto académico extenso.",i:"imgs/o14.jpg"}},
+
+{bl:"Mindset",st:"same",
+ nv:{n:"15",t:"Capa 3: Tú eres el responsable",i:"imgs/n20.jpg",
+   propuesta:"Rotter — Locus de Control Interno vs Externo. El Locus Interno como decisión de diseño.",
+   narrativa:"<strong>'La diferencia más grande entre los empresarios que escalan y los que no no es el mercado, ni el capital, ni los contactos. Es si creen que lo que pasa en su empresa depende de ellos o de las circunstancias.'</strong>"},
+ og:{n:"24",t:"Julian Rotter — Locus de Control",d:"Igual concepto.",i:"imgs/o15.jpg"}},
+
+{bl:"Mindset",st:"modified",
+ nv:{n:"16",t:"Ejercicio: la creencia más cara",i:"imgs/n21.jpg",
+   propuesta:"Retomar la creencia escrita en el slide 7. Calcular el costo real: ¿Cuánto les ha costado en pesos, en meses, en decisiones no tomadas?",
+   narrativa:"<strong>'Vuelvan a lo que escribieron. No en abstracto — cuánto les ha costado esa creencia en pesos, en meses, en decisiones que no tomaron.'</strong> 2 minutos. Andrés no pide que compartan — solo que lo calculen."},
+ og:{n:"25",t:"Slide de imagen (sin texto)",d:"Solo imagen, el ejercicio solo existía en las notas.",i:"imgs/o16.jpg"}},
+
+{bl:"Suerte",st:"modified",
+ nv:{n:"17",t:"El Código de la Suerte (sección)",i:"imgs/n22.jpg",
+   propuesta:"Slide de sección. Título: 'El Código de la Suerte.' Subtítulo: 'El output del mindset correcto.'",
+   narrativa:"<strong>'Hay una creencia que quiero trabajar específicamente. Porque es la que más palanca tiene y la que más se subestima.'</strong>"},
+ og:{n:"15",t:"¿Será bueno creer que somos suertudos?",d:"Richard Wiseman. Pregunta, no afirmación. Sin frame de sistema.",i:"imgs/o17.jpg"}},
+
+{bl:"Suerte",st:"modified",
+ nv:{n:"18",t:"La suerte no es aleatoria",i:"imgs/n23.jpg",
+   propuesta:"Quote de impacto: 'La suerte no es lo que te pasa. Es lo que produces con el mindset correcto.'",
+   narrativa:"Andrés introduce a Richard Wiseman — los 'suertudos' no tienen más oportunidades. <strong>Ven más oportunidades porque su mindset está calibrado para detectarlas.</strong>"},
+ og:{n:"16+17+18",t:"¿Cómo ser suertudos? (3 slides)",d:"Framework en tabla repetido en 3 slides.",i:"imgs/o18.jpg"}},
+
+{bl:"Suerte",st:"same",
+ nv:{n:"19",t:"Los 4 tipos de suerte",i:"imgs/n24.jpg",
+   propuesta:"Los 4 tipos: Ciega (aleatoria) · Esfuerzo (movimiento constante) · Preparación (expertise que abre ojos) · Carácter (reputación que atrae oportunidades).",
+   narrativa:"<strong>'El tipo 1 no lo podemos controlar. Los tipos 2, 3 y 4 son diseñables. Son decisiones.'</strong> Andrés señala que la mayoría opera en el tipo 1 esperando que algo pase, cuando podrían estar construyendo los otros tres."},
+ og:{n:"19",t:"Los 4 tipos de suerte",d:"Igual.",i:"imgs/o19.jpg"}},
+
+{bl:"Suerte",st:"new",
+ nv:{n:"20",t:"Somos suertudos como decisión",i:"imgs/n25.jpg",
+   propuesta:"La creencia de Rappi — 'Somos suertudos' — explicada como decisión de diseño que activó los tipos 2, 3 y 4 simultáneamente.",
+   narrativa:"<strong>'En Rappi decidimos que éramos suertudos. No porque creyéramos en la magia — sino porque esa creencia nos hacía ver más oportunidades, movernos más rápido, y construir una reputación que atraía talento y capital.'</strong>"},
+ og:null},
+
+{bl:"Suerte",st:"new",
+ nv:{n:"20B",t:"Las 4 palancas del Código de la Suerte",i:"imgs/n26.jpg",
+   propuesta:"Grilla 2×2: Volumen (más intentos = más suerte por esfuerzo) · Expertise (saber más = ver lo que otros no ven) · Reputación (ser conocido = que la oportunidad llegue a ti) · Percepción abierta.",
+   narrativa:"<strong>'Estas cuatro palancas son lo que diferencia a alguien que tiene suerte de alguien que la fabrica sistemáticamente.'</strong> Ejercicio rápido: ¿en cuál tienen más oportunidad de mejora?"},
+ og:null},
+
+{bl:"Meta 30x",st:"modified",
+ nv:{n:"21",t:"La Meta Imposible 30x (sección)",i:"imgs/n27.jpg",
+   propuesta:"Slide de sección. 'La Meta Imposible 30x.' Subtítulo: 'La primera prueba de fuego del mindset calibrado.'",
+   narrativa:"<strong>'Todo lo que trabajamos en mindset tiene que aterrizar en algo concreto. Eso concreto es la meta. Y no cualquier meta.'</strong>"},
+ og:{n:"31",t:"¿Cómo defino metas?",d:"Solo una pregunta de transición, sin framework.",i:"imgs/o21.jpg"}},
+
+{bl:"Meta 30x",st:"new",
+ nv:{n:"22",t:"30x vs 30%",i:"imgs/n28.jpg",
+   propuesta:"Contraste visual: 30% = optimizar lo actual, confirma creencias, no requiere cambio. / 30x = hace obsoleta la estrategia actual, obliga a pensar diferente, requiere nueva versión de ti.",
+   narrativa:"<strong>'Una meta de 30% te pide que hagas más de lo mismo. Una meta de 30x te pide que seas diferente. Son dos categorías distintas de problema — y requieren dos categorías distintas de solución.'</strong>"},
+ og:null},
+
+{bl:"Meta 30x",st:"new",
+ nv:{n:"23",t:"Los 4 filtros de la Meta Imposible 30x",i:"imgs/n29.jpg",
+   propuesta:"4 filtros: ¿Te da vértigo? / ¿Requiere una versión nueva de ti? / ¿Hace obsoleta tu estrategia actual? / ¿Te obliga a soltar creencias limitantes?",
+   narrativa:"<strong>'Si tu meta pasa los cuatro filtros — es 30x. Si no, es 30%. Y no hay problema con ser 30% — solo hay que ser honesto con uno mismo. La mayoría de las metas que las personas llaman ambiciosas son 30% disfrazado.'</strong>"},
+ og:null},
+
+{bl:"Meta 30x",st:"new",
+ nv:{n:"24",t:"Escríbelo",i:"imgs/n30.jpg",
+   propuesta:"Instrucción directa: 'Escribe tu Meta Imposible 30x. En presente. Sin racionalizar el cómo. 5 minutos. Ahora.'",
+   narrativa:"No hay más explicación. El slide dice lo que hay que hacer. <strong>Andrés pone un timer visible. Silencio real en la sala.</strong>"},
+ og:null},
+
+{bl:"Workshop",st:"new",
+ nv:{n:"25",t:"¿Quién quiere compartir?",i:"imgs/n31.jpg",
+   propuesta:"Workshop en vivo. Andrés invita a 10-15 voluntarios a compartir su Meta Imposible 30x. Él challengea en vivo — ¿pasa los 4 filtros? ¿es realmente 30x o 30% disfrazado?",
+   narrativa:"<strong>Este es el momento de mayor energía del bloque.</strong> La sala ve cómo se calibra una meta 30x en tiempo real. Los que no comparten igual calibran la suya mientras escuchan."},
+ og:null},
+
+{bl:"Workshop",st:"new",
+ nv:{n:"25B",t:"Transición Workshop → Sistema",i:"imgs/n32.jpg",
+   propuesta:"Slide de puente: 'Ya tienen el mindset. Ya tienen la Meta Imposible 30x. ¿Con qué sistema la logran?'",
+   narrativa:"<strong>'El mindset sin sistema produce intención. El sistema sin mindset produce actividad sin dirección. Los dos juntos producen velocidad.'</strong>"},
+ og:null},
+
+{bl:"30X OS",st:"new",
+ nv:{n:"26",t:"El 30X Exponential OS",i:"imgs/n33.jpg",
+   propuesta:"Diagrama circular: MINDSET (anillo exterior) → STRATEGY → PEOPLE → EXECUTION → SPEED & CAPABILITIES (centro). Con indicación de qué cubre cada ponente.",
+   narrativa:"<strong>'Este es el sistema que usamos en Rappi. Es el que vamos a trabajar estos dos días. No como teoría — como herramienta que se llevan a su empresa el lunes.'</strong>"},
+ og:null},
+
+{bl:"30X OS",st:"modified",
+ nv:{n:"27",t:"Los 4 ingredientes (tracker de progreso)",i:"imgs/n34.jpg",
+   propuesta:"Los 4 ingredientes con estado: Mindset ✓ (completo) · Estrategia → (viene ahora) · People → (Daniel) · Ciclos → (Dylan).",
+   narrativa:"<strong>'El primer ingrediente está. Pasamos al segundo.'</strong> El tracker le da a la audiencia la sensación de avance y ubica lo que queda."},
+ og:{n:"40+43",t:"Expansión World Class + PMF prerequisito",d:"6 ingredientes en lista sin tracker de progreso.",i:"imgs/o24.jpg"}},
+
+{bl:"Estrategia",st:"new",
+ nv:{n:"28",t:"ESTRATEGIA (sección)",i:"imgs/n35.jpg",
+   propuesta:"Slide de sección. ESTRATEGIA en grande. Ingrediente 2.",
+   narrativa:"Andrés pausa. <strong>'Ingrediente número dos.'</strong>"},
+ og:null},
+
+{bl:"Estrategia",st:"modified",
+ nv:{n:"29",t:"La Meta define la Estrategia",i:"imgs/n36.jpg",
+   propuesta:"Quote conectado con la Meta Imposible: 'Tu Meta Imposible 30x acaba de hacer obsoleta tu estrategia actual. Eso no es un problema. Es el punto de partida.'",
+   narrativa:"<strong>'La mayoría de las empresas tiene una estrategia que sirve para la meta que ya lograron — no para la que quieren lograr. El primer paso es aceptar que lo que te trajo hasta aquí no te va a llevar a donde quieres ir.'</strong> Cierra el loop con el slide A2."},
+ og:{n:"37",t:"Hoja de trabajo SMART",d:"7 elementos sin conexión a ninguna meta.",i:"imgs/o22.jpg"}},
+
+{bl:"Estrategia",st:"modified",
+ nv:{n:"30",t:"Priorización implacable",i:"imgs/n37.jpg",
+   propuesta:"El principio de Rappi: Claridad total sobre qué genera más valor · Despriorizar implacablemente lo que no lo genera · 'Don't you dare waste my time.'",
+   narrativa:"<strong>'La estrategia no es una lista de todo lo que quieren hacer. Es una lista de todo lo que van a dejar de hacer. La claridad sobre el no es lo que libera recursos para el sí que importa.'</strong>"},
+ og:{n:"55",t:"Priorización implacable",d:"Igual contenido, estaba en bloque El Operador después del slide 50.",i:"imgs/o23.jpg"}},
+
+{bl:"Estrategia",st:"new",
+ nv:{n:"31",t:"Estrategia → Tácticas → Playbook",i:"imgs/n38.jpg",
+   propuesta:"La secuencia en cascada: La Meta define la Estrategia → La Estrategia define las Tácticas → Las Tácticas documentadas se convierten en Playbook.",
+   narrativa:"<strong>'El Playbook es lo que convierte una empresa dependiente del founder en una empresa que escala sin él. Sin Playbook, cada nuevo integrante del equipo inventa de nuevo lo que ya alguien descubrió.'</strong>"},
+ og:null},
+
+{bl:"Estrategia",st:"modified",
+ nv:{n:"31B",t:"El Problema Correcto (Hoja SMART)",i:"imgs/n39.jpg",
+   propuesta:"5 elementos para definir el problema correcto: Pregunta SMART · Contexto y complicación · Stakeholders que deciden · Criterios de éxito · Quick wins para capturar valor inmediato.",
+   narrativa:"<strong>'El error más caro en estrategia no es resolver mal un problema. Es resolver bien el problema equivocado.'</strong> Ejercicio: ¿cuál es el problema que están resolviendo en su empresa ahora mismo? ¿Es el correcto?"},
+ og:{n:"37+61",t:"Hoja SMART (aparece dos veces en la original)",d:"Mismo contenido repetido en dos bloques distintos sin conexión a la Meta.",i:"imgs/o22.jpg"}},
+
+{bl:"Cultura",st:"modified",
+ nv:{n:"32",t:"CULTURA (sección)",i:"imgs/n40.jpg",
+   propuesta:"Slide de sección. CULTURA en grande. Ingrediente 3.",
+   narrativa:"<strong>'Ingrediente número tres.'</strong> Pausa. Andrés cambia el tono — más directo, más operativo."},
+ og:{n:"46+47",t:"Cultura agresiva desplegada (duplicada en dos slides)",d:"Los 14 principios de Rappi en dos slides casi idénticos.",i:"imgs/o25.jpg"}},
+
+{bl:"Cultura",st:"new",
+ nv:{n:"33",t:"¿Qué es cultura?",i:"imgs/n41.jpg",
+   propuesta:"Definición operativa: 'La cultura es el sistema operativo colectivo de tu empresa. Es lo que tu equipo hace cuando nadie está mirando.'",
+   narrativa:"<strong>'No es el póster en la pared. No es el valor del mes. Es el conjunto de creencias y comportamientos que tu equipo tiene internalizados — y que determinan lo que pasa cuando no estás.'</strong>"},
+ og:null},
+
+{bl:"Cultura",st:"modified",
+ nv:{n:"34",t:"Los 14 principios Rappi",i:"imgs/n42.jpg",
+   propuesta:"Los 14 principios en un slide limpio y legible. Sin duplicación, sin texto excesivo.",
+   narrativa:"Andrés no los lee todos. <strong>Destaca 3 o 4 que considera los más contraintuitivos</strong> y explica por qué existen. El slide es referencia, no lectura."},
+ og:{n:"47",t:"14 principios Rappi (versión B, duplicada)",d:"Mismos principios del slide 46. Slide duplicado.",i:"imgs/o26.jpg"}},
+
+{bl:"Cultura",st:"modified",
+ nv:{n:"35",t:"Principios del operador",i:"imgs/n43.jpg",
+   propuesta:"4 principios de mentalidad operativa: Responsabilidad Total (Problem QB) · Can do will do · Mente Abierta · Ausencia de Defensividad.",
+   narrativa:"<strong>'Estos no son principios de la empresa — son principios de cómo opera el líder dentro de ella. Si el líder no los tiene, no se pueden pedir al equipo.'</strong>"},
+ og:{n:"50",t:"El Operador (tabla de mentalidades)",d:"Los mismos principios dispersos en slides 50, 52, 58 y 59.",i:"imgs/o27.jpg"}},
+
+{bl:"Cultura",st:"modified",
+ nv:{n:"36",t:"13 principios de reclutamiento (3 cards)",i:"imgs/n44.jpg",
+   propuesta:"Los 3 más importantes como cards: No delegas el reclutamiento · Rihanna Rule (Work work work) · Contratación en V.",
+   narrativa:"<strong>'El reclutamiento es la decisión de mayor leverage que toman como líderes. Y no se delega. El equipo es el segundo ingrediente del sistema — Daniel va a profundizar en eso mañana.'</strong>"},
+ og:{n:"67",t:"Recruiting principles (lista de 13)",d:"13 principios como lista numerada sin desarrollo visual.",i:"imgs/o28.jpg"}},
+
+{bl:"Cultura",st:"modified",
+ nv:{n:"36B",t:"Sistema de reclutamiento: 13 principios completos",i:"imgs/n45.jpg",
+   propuesta:"Los 10 principios restantes en grilla compacta 2×5. No para leerlos — para tener la referencia.",
+   narrativa:"Andrés va rápido: <strong>'Estos son los 13 principios que usamos en Rappi. Daniel va a profundizar en los que impactan al equipo. Los dejo acá para que los tengan.'</strong>"},
+ og:{n:"68",t:"Principio 0: inicio de 23 slides de profundidad",d:"Cada principio en 1-4 slides con detalle operativo de Rappi.",i:"imgs/o29.jpg"}},
+
+{bl:"Ciclos",st:"new",
+ nv:{n:"37",t:"CICLOS DE ITERACIÓN (sección)",i:"imgs/n46.jpg",
+   propuesta:"Slide de sección. CICLOS DE ITERACIÓN en grande. Ingrediente 4.",
+   narrativa:"<strong>'Ingrediente número cuatro.'</strong>"},
+ og:null},
+
+{bl:"Ciclos",st:"modified",
+ nv:{n:"38",t:"Capability Development Framework",i:"imgs/n47.jpg",
+   propuesta:"El diagrama de 8 pasos: Definir el problema → Desarrollar el mindset → Contratar un experto → Aprender con IA → Estudiar → Consultar expertos → Conseguir mentora → Desarrollar la capability.",
+   narrativa:"<strong>'Cuando Rappi necesitó construir una capacidad que no tenía — logística, fintech, publicidad — seguimos este proceso. Nunca dijimos que no teníamos el talento. Dijimos: ¿cómo lo construimos?'</strong>"},
+ og:{n:"33",t:"Framework 8 pasos (bloque Capabilities)",d:"Mismo contenido, desconectado del flujo principal.",i:"imgs/o30.jpg"}},
+
+{bl:"Ciclos",st:"modified",
+ nv:{n:"39",t:"No mentiras",i:"imgs/n48.jpg",
+   propuesta:"El principio aplicado a la operación: diferencia entre una narrativa cómoda ('bajamos porque llovió') y una explicación real con datos.",
+   narrativa:"<strong>'Las empresas que no escalan no tienen un problema de estrategia. Tienen un problema de verdad. Se mienten sobre qué está pasando, por qué, y qué requiere la solución real.'</strong>"},
+ og:{n:"63",t:"No mentiras (en bloque El Operador)",d:"Igual contenido, fuera del contexto de ciclos e iteración.",i:"imgs/o31.jpg"}},
+
+{bl:"Ciclos",st:"modified",
+ nv:{n:"40",t:"El Loop de Mejora",i:"imgs/n49.jpg",
+   propuesta:"El ciclo de iteración: Plan → Construcción → Lanzamiento → Operar y Mejorar → loop. La tasa de mejora depende de la velocidad del ciclo, no de la perfección en cada paso.",
+   narrativa:"<strong>'La ventaja competitiva no viene de hacer algo perfecto. Viene de hacer algo y aprender más rápido que tu competencia.'</strong>"},
+ og:{n:"38",t:"Marco de desarrollo (bloque Capabilities)",d:"Igual concepto, sin conexión a los 4 ingredientes.",i:"imgs/o32.jpg"}},
+
+{bl:"Cierre",st:"modified",
+ nv:{n:"41",t:"El sistema completo",i:"imgs/n50.jpg",
+   propuesta:"Los 4 ingredientes con ✓ en todos. Speed & Capabilities en el centro. El tracker completo.",
+   narrativa:"<strong>'El primer ingrediente del 30X Exponential OS está instalado. Mindset · Estrategia · Cultura · Ciclos.'</strong> Pausa. <strong>'Y todavía falta el resto.'</strong>"},
+ og:{n:"41",t:"Los ingredientes (lista en texto, sin checks)",d:"Lista de 6 ingredientes sin tracker, sin estado de avance.",i:"imgs/o02.jpg"}},
+
+{bl:"Cierre",st:"modified",
+ nv:{n:"42",t:"El sistema se abre",i:"imgs/n51.jpg",
+   propuesta:"Cierre que abre hacia los días siguientes. El diagrama del 30X OS con People (Daniel) y Ejecución/Flywheel (Dylan) resaltados como lo que viene.",
+   narrativa:"<strong>'Andrés instaló el mindset y la estrategia. Mañana Daniel les muestra cómo el equipo que tienen hoy puede llevarlos a la meta que escribieron. Y Dylan les muestra cómo la velocidad de ejecución convierte todo esto en resultados compuestos.'</strong> Pausa final: <strong>'Lo que vivieron hoy es el mapa. Los próximos dos días son el territorio.'</strong>"},
+ og:{n:"91+92+93",t:"Lista de materiales y libros · imagen genérica",d:"Cierre genérico sin conexión al resto del inmersivo ni a los otros ponentes.",i:"imgs/o33.jpg"}}
 ];
 
 var cur=0;
 var BL=[...new Set(SL.map(function(s){return s.bl;}))];
+
 function lbl(st){
-  if(st==='same')return['Sin cambios','bs'];
-  if(st==='modified')return['Modificado','bm'];
-  if(st==='new')return['Nuevo','bn'];
-  return['Eliminado','bs'];
+  if(st==='same') return ['Sin cambios','bs'];
+  if(st==='modified') return ['Modificado','bm'];
+  if(st==='new') return ['Nuevo','bn'];
+  return ['Eliminado','bs'];
 }
 function g(id){return document.getElementById(id);}
-function img(src){
-  if(!src)return '<div class="emp">Imagen no disponible</div>';
+function mkImg(src){
+  if(!src) return '<div class="emp-img">Imagen no disponible</div>';
   return '<img src="'+src+'" alt="" loading="lazy">';
 }
+
 function render(){
-  var s=SL[cur],l=lbl(s.st);
+  var s=SL[cur], l=lbl(s.st);
   g('ctr').textContent=(cur+1)+' / '+SL.length;
   g('pill').textContent=s.bl;
-  g('bdg').textContent=l[0];g('bdg').className='bdg '+l[1];
+  g('bdg').textContent=l[0]; g('bdg').className='bdg '+l[1];
   g('pf').style.width=((cur+1)/SL.length*100)+'%';
-  g('bP').disabled=(cur===0);g('bN').disabled=(cur===SL.length-1);
+  g('bP').disabled=(cur===0); g('bN').disabled=(cur===SL.length-1);
+
+  // Block nav
   var bh='';
   for(var i=0;i<BL.length;i++){
     bh+='<button class="bb'+(BL[i]===s.bl?' on':'')+'" onclick="jb('+i+')">'+BL[i]+'</button>';
   }
   g('bks').innerHTML=bh;
+
+  // ORIGINAL panel
   if(s.og){
     g('oN').textContent='Slide '+s.og.n;
-    g('oT').textContent=s.og.t;
-    g('oD').textContent=s.og.d;
-    g('oI').innerHTML=img(s.og.i);
+    g('oI').innerHTML=mkImg(s.og.i);
+    g('oInfo').innerHTML=
+      '<div class="slide-title-orig">'+s.og.t+'</div>'+
+      '<div class="slide-desc-orig">'+s.og.d+'</div>';
   } else {
-    g('oN').textContent='';g('oT').textContent='';g('oD').textContent='';
-    g('oI').innerHTML='<div class="emp">No existe en la presentacion original.<br><br>Este slide es completamente nuevo.</div>';
+    g('oN').textContent='';
+    g('oI').innerHTML='<div class="emp-img">No existe en la presentación original.<br>Este slide es completamente nuevo.</div>';
+    g('oInfo').innerHTML='';
   }
+
+  // NUEVA panel
   g('nN').textContent='Slide '+s.nv.n;
-  g('nT').textContent=s.nv.t;
-  g('nD').textContent=s.nv.d;
-  g('nI').innerHTML=img(s.nv.i);
+  g('nI').innerHTML=mkImg(s.nv.i);
+  g('nInfo').innerHTML=
+    '<div class="slide-title-nv">'+s.nv.t+'</div>'+
+    '<div class="sec-label">¿Qué propongo?</div>'+
+    '<div class="propuesta-box"><div class="propuesta-text">'+s.nv.propuesta+'</div></div>'+
+    '<div class="sec-label">La narrativa · Lo que dice Andrés</div>'+
+    '<div class="narrativa-box"><div class="narrativa-text">'+s.nv.narrativa+'</div></div>';
 }
+
 function go(d){cur=Math.max(0,Math.min(SL.length-1,cur+d));render();}
 function jb(i){cur=SL.findIndex(function(s){return s.bl===BL[i];});render();}
-document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1);});
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowLeft')go(-1);
+  if(e.key==='ArrowRight')go(1);
+});
 render();
 </script>
 </body>
